@@ -4,6 +4,7 @@ import android.app.Application;
 
 import java.util.ArrayList;
 
+import Modelo.Partida;
 import Modelo.modeloMaquina;
 
 public class applicationMaquina extends Application {
@@ -52,6 +53,11 @@ public class applicationMaquina extends Application {
         aux += "\nPuntuacion: "+actual.getPuntuacion();
         aux += "\nidPartida: "+actual.getIdPartida();
         return aux;
+    }
+    public String imprimePartida(){
+        //OBTENER PARTIDA, COMO NO SE LA GENERO AQUI PERO PILLARLA DEL BACKFORAPP
+        Partida p = new Partida();
+        return p.toString();
     }
 
 
