@@ -1,14 +1,16 @@
-package dev.wimo.dancingmachineuserapp;
+package dev.wimo.dancingmachineuserapp.Vistas;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import dev.wimo.dancingmachineuserapp.R;
+
+public class InfoPartida extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_info_partida);
     }
 }

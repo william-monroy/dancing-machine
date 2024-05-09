@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <application
+        android:name="dev.wimo.dancingmachineuserapp.Application.applicationPartida"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -13,7 +14,16 @@
         android:theme="@style/Theme.DancingMachineUserApp"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".Vistas.InfoMaquina"
+            android:exported="false" />
+        <activity
+            android:name=".Vistas.InfoPartida"
+            android:exported="false" />
+        <activity
+            android:name=".Vistas.CrearPartida"
+            android:exported="false" />
+        <activity
+            android:name=".Vistas.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
