@@ -3,6 +3,7 @@ package Vistas;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ToggleButton;
@@ -14,7 +15,7 @@ import Application.applicationMaquina;
 public class crearModelo extends AppCompatActivity {
 
     private applicationMaquina app;
-    private boolean b1=false;
+    private boolean b1 = false;
     private boolean b2 = false;
     private boolean b3 = false;
     private boolean b4 = false;
@@ -34,10 +35,6 @@ public class crearModelo extends AppCompatActivity {
         dato = editText.getText().toString();
         app.asociarPartida(dato);
 
-        ToggleButton t1 = (ToggleButton) findViewById(R.id.Boton1);
-        ToggleButton t2 = (ToggleButton) findViewById(R.id.Boton2);
-        ToggleButton t3 = (ToggleButton) findViewById(R.id.Boton3);
-        ToggleButton t4 = (ToggleButton) findViewById(R.id.Boton4);
         if(b1) {
             app.pulsar1();
         }
@@ -51,7 +48,6 @@ public class crearModelo extends AppCompatActivity {
             app.pulsar4();
         }
 
-        app.guardarActual();
         setResult(1);
         finish();
     }
