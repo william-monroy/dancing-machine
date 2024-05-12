@@ -1,11 +1,15 @@
 package Modelo;
 
-public class ModeloPartida {
-    private String id;
-    private String cancion;
-    private String dificultad;
-    private float Latitud;
-    private float Longitud;
+import com.parse.ParseClassName;
+import com.parse.ParseObject;
+
+@ParseClassName("ModeloPartida")
+public class ModeloPartida extends ParseObject {
+//    private String id;
+//    private String cancion;
+//    private String dificultad;
+//    private float Latitud;
+//    private float Longitud;
     public ModeloPartida(){
         setId("1");
         setCancion("cancionejemplo");
@@ -15,43 +19,43 @@ public class ModeloPartida {
     }
 
     public String getId() {
-        return id;
+        return getString("Id");
     }
 
     public void setId(String id) {
-        this.id = id;
+        put("Id",id);
     }
 
     public String getCancion() {
-        return cancion;
+        return getString("cancion");
     }
 
     public void setCancion(String cancion) {
-        this.cancion = cancion;
+        put("cancion",cancion);
     }
 
     public String getDificultad() {
-        return dificultad;
+        return getString("dificultad");
     }
 
     public void setDificultad(String dificultad) {
-        this.dificultad = dificultad;
+        put("dificultad",dificultad);
     }
 
     public float getLatitud() {
-        return Latitud;
+        return (float) getNumber("latitud");
     }
 
     public void setLatitud(float latitud) {
-        Latitud = latitud;
+        put("latitud",latitud);
     }
 
     public float getLongitud() {
-        return Longitud;
+        return (float) getNumber("longitud");
     }
 
     public void setLongitud(float longitud) {
-        Longitud = longitud;
+        put("longitud",longitud);
     }
     @Override
     public String toString(){

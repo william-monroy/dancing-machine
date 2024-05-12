@@ -74,7 +74,7 @@ public class CrearPartida extends AppCompatActivity {
         app.setLatitud(Float.valueOf(inputLatitud.getText().toString()));
         app.setLongitud(Float.valueOf(inputLongitud.getText().toString()));
 
-        app.guardarActual();
+//        app.guardarActual();
         setResult(1);
         finish();
     }

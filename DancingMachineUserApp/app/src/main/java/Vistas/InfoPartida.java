@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -36,11 +37,12 @@ public class InfoPartida extends AppCompatActivity {
     }
 
     public void Volver(View view){
-        setResult(1);
+        setResult(2);
         finish();
     }
     public void verInfoMaquina(View view){
         Intent intent = new Intent(getApplicationContext(), InfoMaquina.class);
+        Log.d("Intencion de abir InfoMaquina","Estado: " + 1);
         startActivityForResult(intent, 1);
     }
 }

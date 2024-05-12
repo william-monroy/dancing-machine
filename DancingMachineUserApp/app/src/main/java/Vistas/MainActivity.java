@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         app =(applicationPartida) getApplicationContext();
         itemsAdapter = new ArrayAdapter<ModeloPartida>(this,R.layout.row_layout,R.id.listText,app.getHistorico());
         listView.setAdapter(itemsAdapter);
+        app.getServerPartidaUpdate(listView);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -47,10 +48,16 @@ public class MainActivity extends AppCompatActivity {
         startActivityForResult(intent, 1);
     }
     public void onActivityResult(int requestCode, int resultCode, Intent data){
-        super.onActivityResult(requestCode, resultCode, data);
-        listView = (ListView) findViewById(R.id.list);
-        app =(applicationPartida) getApplicationContext();
-        itemsAdapter = new ArrayAdapter<ModeloPartida>(this,R.layout.row_layout,R.id.listText,app.getHistorico());
-        listView.setAdapter(itemsAdapter);
+//        super.onActivityResult(requestCode, resultCode, data);
+//        listView = (ListView) findViewById(R.id.list);
+//        app =(applicationPartida) getApplicationContext();
+//        itemsAdapter = new ArrayAdapter<ModeloPartida>(this,R.layout.row_layout,R.id.listText,app.getHistorico());
+//        listView.setAdapter(itemsAdapter);
+        if(resultCode == 1) {
+            super.onActivityResult(requestCode, resultCode, data);
+            listView = (ListView) findViewById(R.id.list);
+            app = (applicationPartida) getApplicationContext();
+            app.addObjectUpdate(app.getActual(), listView);
+        }
     }
 }
