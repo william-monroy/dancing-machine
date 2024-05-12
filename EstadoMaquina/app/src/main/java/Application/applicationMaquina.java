@@ -2,6 +2,7 @@ package Application;
 
 import android.app.Application;
 import android.util.Log;
+import android.view.Display;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -15,27 +16,32 @@ import com.parse.ParseQuery;
 import java.util.ArrayList;
 import java.util.List;
 
-import Modelo.Partida;
+import Modelo.ModeloPartida;
 import Modelo.modeloMaquina;
 
 public class applicationMaquina extends Application {
     private List<modeloMaquina> historico;
     private modeloMaquina actual;
+    private ModeloPartida modeloPartida;
 
     @Override
     public void onCreate(){
 
         super.onCreate();
         ParseObject.registerSubclass(modeloMaquina.class);
+        ParseObject.registerSubclass(ModeloPartida.class);
 
         historico = new ArrayList<>();
         iniciarActual();
+        modeloPartida = new ModeloPartida();
 
         Parse.initialize(new Parse.Configuration.Builder(getApplicationContext())
                 .applicationId(getString(R.string.back4app_app_id))
                 .clientKey(getString(R.string.back4app_client_key))
                 .server(getString(R.string.back4app_server_url))
                 .build());
+
+
     }
 
 
@@ -78,11 +84,43 @@ public class applicationMaquina extends Application {
         aux += "\nidPartida: "+actual.getIdPartida();
         return aux;
     }
+
+
+
+
+
+
     public String imprimePartida(){
-        //OBTENER PARTIDA, COMO NO SE LA GENERO AQUI PERO PILLARLA DEL BACKFORAPP
-        Partida p = new Partida();
-        return p.toString();
+        ParseQuery<ModeloPartida> query = new ParseQuery<>("ModeloPartida");
+       // ParseQuery<ModeloPartida> query = ParseQuery.getQuery("ModeloPartida");
+        try {
+            List<ModeloPartida> list = query.find();
+            Log.d("Lista", "List: " + list);
+
+            for (ParseObject objeto:list) {
+                ModeloPartida m = (ModeloPartida) objeto;
+                if (m.getId().equals(actual.getIdPartida())) {
+                    modeloPartida.setId(m.getId());
+                    modeloPartida.setCancion(m.getCancion());
+                    modeloPartida.setDificultad(m.getDificultad());
+                    //modeloPartida.setLongitud(m.getLongitud());
+                    //modeloPartida.setLatitud(m.getLatitud());
+                    break;
+                }
+            }
+         } catch (com.parse.ParseException e) {
+         }
+        if (modeloPartida != null){
+            return modeloPartida.toString();}
+        else {return "nulo";}
     }
+
+
+
+
+
+
+
     public void getServerMaquinaUpdate(ListView listView){
         ParseQuery<modeloMaquina> query = ParseQuery.getQuery("modeloMaquina");
         query.findInBackground((objects,e)->{
@@ -98,7 +136,6 @@ public class applicationMaquina extends Application {
             else{
                 Log.e("Error: "+e.getMessage(),"server point update");
             }
-
         });
     }
     public void addObjectUpdate(@NonNull modeloMaquina actual, ListView listView){
@@ -117,20 +154,5 @@ public class applicationMaquina extends Application {
         }
         });
     }
-    public void updateObjectUpdate(@NonNull modeloMaquina actual, ListView listView){
-        actual.saveInBackground(e -> {
-            if (e == null) {
-                ArrayAdapter<modeloMaquina> adapter;
-                adapter = (ArrayAdapter<modeloMaquina>) listView.getAdapter();
-                adapter.notifyDataSetChanged();
-
-                Log.d("object updated srv OK:", "updateObjectUpdate()");
-            } else {
-                Log.d("fail update, reason: "+ e.getMessage(), "updateObjectUpdate()");
-            }
-        });
-
-    }
-
 
 }
