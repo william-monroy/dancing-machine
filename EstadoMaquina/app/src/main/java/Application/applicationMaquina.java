@@ -103,8 +103,8 @@ public class applicationMaquina extends Application {
                     modeloPartida.setId(m.getId());
                     modeloPartida.setCancion(m.getCancion());
                     modeloPartida.setDificultad(m.getDificultad());
-                    //modeloPartida.setLongitud(m.getLongitud());
-                    //modeloPartida.setLatitud(m.getLatitud());
+                    modeloPartida.setLongitud(m.getLongitud());
+                    modeloPartida.setLatitud(m.getLatitud());
                     break;
                 }
             }

@@ -1,10 +1,10 @@
 package Modelo;
 
-import com.parse.ParseObject;
 import com.parse.ParseClassName;
+import com.parse.ParseObject;
 
 @ParseClassName("ModeloPartida")
-public class ModeloPartida extends ParseObject{
+public class ModeloPartida extends ParseObject {
     public ModeloPartida(){
     }
 
@@ -13,7 +13,7 @@ public class ModeloPartida extends ParseObject{
     }
 
     public void setId(String id) {
-        put("id", id);
+        put("Id",id);
     }
 
     public String getCancion() {
@@ -21,7 +21,7 @@ public class ModeloPartida extends ParseObject{
     }
 
     public void setCancion(String cancion) {
-        put("cancion", cancion);
+        put("cancion",cancion);
     }
 
     public String getDificultad() {
@@ -29,27 +29,28 @@ public class ModeloPartida extends ParseObject{
     }
 
     public void setDificultad(String dificultad) {
-        put("dificultad", dificultad);
+        put("dificultad",dificultad);
     }
 
-    public float getLatitud() {
-        return (float)getNumber("Latitud");
-    }
-    public void setLatitud(float latitud) {
-        put("Latitud",latitud);
+    public Number getLatitud() {
+        return  getNumber("latitud");
     }
 
-    public float getLongitud() {
-        return (float) getNumber("Longitud");
+    public void setLatitud(Number latitud) {
+        put("latitud",latitud);
     }
 
-    public void setLongitud(float longitud) {
-        put("Longitud" , longitud);
+    public Number getLongitud() {
+        return getNumber("longitud");
+    }
+
+    public void setLongitud(Number longitud) {
+        put("longitud",longitud);
     }
     @Override
     public String toString(){
         String aux = "Id partida: "+getId()+"\nDificultad: "+getDificultad()+"\nCancion:"+getCancion();
-        //aux += "\n\n\nLatitud: "+getLatitud()+"\nLongitud: "+getLongitud();
+        aux += "\n\nLatitud: "+getLatitud()+"\nLongitud: "+getLongitud();
         return aux;
     }
 }
