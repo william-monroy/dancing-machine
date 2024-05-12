@@ -32,7 +32,6 @@ public class CrearPartida extends AppCompatActivity {
         app = (applicationPartida) getApplicationContext();
         app.iniciarActual();
 
-        // inputDificultad Dropdown
         j_spinner = findViewById(R.id.inputDificultad);
         j_spinner_selected = findViewById(R.id.x_spinner_selected);
         j_spinner.post(new Runnable() {
@@ -74,7 +73,6 @@ public class CrearPartida extends AppCompatActivity {
         app.setLatitud(Float.valueOf(inputLatitud.getText().toString()));
         app.setLongitud(Float.valueOf(inputLongitud.getText().toString()));
 
-//        app.guardarActual();
         setResult(1);
         finish();
     }

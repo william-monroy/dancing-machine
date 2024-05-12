@@ -19,8 +19,6 @@ public class MainActivity extends AppCompatActivity {
     ArrayAdapter<ModeloPartida> itemsAdapter;
     applicationPartida app;
 
-    private static final int SHOW_SUBACTIVITY = 1;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,11 +46,6 @@ public class MainActivity extends AppCompatActivity {
         startActivityForResult(intent, 1);
     }
     public void onActivityResult(int requestCode, int resultCode, Intent data){
-//        super.onActivityResult(requestCode, resultCode, data);
-//        listView = (ListView) findViewById(R.id.list);
-//        app =(applicationPartida) getApplicationContext();
-//        itemsAdapter = new ArrayAdapter<ModeloPartida>(this,R.layout.row_layout,R.id.listText,app.getHistorico());
-//        listView.setAdapter(itemsAdapter);
         if(resultCode == 1) {
             super.onActivityResult(requestCode, resultCode, data);
             listView = (ListView) findViewById(R.id.list);

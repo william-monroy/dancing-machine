@@ -16,6 +16,7 @@ import java.util.List;
 
 import Modelo.modeloMaquina;
 import Modelo.ModeloPartida;
+import Vistas.InfoMaquina;
 import dev.wimo.dancingmachineuserapp.R;
 
 public class applicationPartida extends Application {
@@ -23,6 +24,8 @@ public class applicationPartida extends Application {
     private List<ModeloPartida> historico;
     private ModeloPartida actual;
     private modeloMaquina maquinaActual;
+
+    private InfoMaquina view;
 
     @Override
     public void onCreate(){
@@ -42,11 +45,6 @@ public class applicationPartida extends Application {
                 .build());
     }
 
-    public void reiniciarHistorico(){historico.clear();
-    }
-//    public void guardarActual(){
-//        historico.add(actual);
-//    }
     public void setId(String id) { actual.setId(id);}
     public void setCancion(String cancion) { actual.setCancion(cancion);}
     public void setDificultad(String dificultad) { actual.setDificultad(dificultad);}
@@ -109,7 +107,6 @@ public class applicationPartida extends Application {
                 Log.d("fail update, reason: "+ e.getMessage(), "updateObjectUpdate()");
             }
         });
-
     }
 
     public void updateData(int puntuacion, boolean pulsa1, boolean pulsa2, boolean pulsa3, boolean pulsa4, String idPartida) {
@@ -124,5 +121,7 @@ public class applicationPartida extends Application {
     public modeloMaquina getMaquina(String idPartida) {
         return new modeloMaquina(idPartida);
     }
+
+
 
 }

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import dev.wimo.dancingmachineuserapp.R;
 import Application.applicationPartida;
@@ -21,8 +22,6 @@ public class InfoPartida extends AppCompatActivity {
         setContentView(R.layout.activity_info_partida);
 
         app =(applicationPartida) getApplicationContext();
-//        TextView textView = findViewById(R.id.txtId);
-//        textView.setText(app.imprimeActual());
         TextView txtId = findViewById(R.id.txtId);
         TextView txtCancion = findViewById(R.id.txtP1);
         TextView txtDificultad = findViewById(R.id.txtP3);
@@ -44,5 +43,9 @@ public class InfoPartida extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), InfoMaquina.class);
         Log.d("Intencion de abir InfoMaquina","Estado: " + 1);
         startActivityForResult(intent, 1);
+    }
+
+    public void showError(String error) {
+        Toast.makeText(this, error, Toast.LENGTH_SHORT).show();
     }
 }

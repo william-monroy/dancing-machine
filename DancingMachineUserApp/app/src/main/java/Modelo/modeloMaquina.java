@@ -6,8 +6,6 @@ import com.parse.ParseClassName;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
-import Application.applicationPartida;
-
 
 @ParseClassName("modeloMaquina")
 public class modeloMaquina extends ParseObject {
@@ -37,7 +35,7 @@ public class modeloMaquina extends ParseObject {
                     boolean pulsa2 = mostRecent.getBoolean("pulsa2");
                     boolean pulsa3 = mostRecent.getBoolean("pulsa3");
                     boolean pulsa4 = mostRecent.getBoolean("pulsa4");
-                    // Aquí puedes usar los datos como necesites
+                    // Actualizamos los valores de Maquina
                     this.pulsa1 = pulsa1;
                     this.pulsa2 = pulsa2;
                     this.pulsa3 = pulsa3;
@@ -52,6 +50,7 @@ public class modeloMaquina extends ParseObject {
                 Log.e("App", "Error al buscar registros: " + e.getLocalizedMessage());
             }
         });
+
     }
     public boolean getPulsa1() {return this.pulsa1;}
     public boolean getPulsa2() {return this.pulsa2;}
@@ -84,19 +83,8 @@ public class modeloMaquina extends ParseObject {
     public int getPuntuacion() {
         return this.puntuacion;
     }
-
     public String getIdPartida() {
         return this.idPartida;
     }
 
-//    public void setIdPartida(String idPartida) {
-//        this.idPartida = idPartida;
-//    }
-//    @Override
-//    public String toString(){
-//        String aux = "Boton1: "+pulsa1+"\nBoton2: "+pulsa2+"\nBoton3: "+pulsa3+"\nBoton4: "+pulsa4;
-//        aux += "Puntuacion: "+ puntuacion;
-//        aux += "\nidPartida: "+ idPartida;
-//        return aux;
-//    }
 }
