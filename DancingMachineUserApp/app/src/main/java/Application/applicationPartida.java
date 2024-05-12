@@ -1,11 +1,11 @@
-package dev.wimo.dancingmachineuserapp.Application;
+package Application;
 
 import android.app.Application;
 
 import java.util.ArrayList;
 
-import dev.wimo.dancingmachineuserapp.Modelo.Maquina;
-import dev.wimo.dancingmachineuserapp.Modelo.ModeloPartida;
+import Modelo.Maquina;
+import Modelo.ModeloPartida;
 
 public class applicationPartida extends Application {
 
@@ -30,6 +30,7 @@ public class applicationPartida extends Application {
     public void iniciarActual() { actual = new ModeloPartida();}
     public ArrayList<ModeloPartida> getHistorico() { return historico;}
     public void setActual(int i){actual=historico.get(i);}
+    public ModeloPartida getActual() {return actual;}
     public void resetActual(){actual=new ModeloPartida();}
     public String imprimeActual(){
         String aux = "ID: "+actual.getId()+"\nCancion: "+actual.getCancion()+"\nDificultad: "+actual.getDificultad()+"\nLatitud: "+actual.getLatitud();
@@ -42,5 +43,8 @@ public class applicationPartida extends Application {
         return maquina.toString();
     }
 
+    public Maquina getMaquina(String idPartida) {
+        return new Maquina(idPartida);
+    }
 
 }

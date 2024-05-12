@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Vistas.InfoPartida">
+    tools:context="Vistas.InfoPartida">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -83,7 +83,7 @@
                     android:text="Dificultad:" />
 
                 <TextView
-                    android:id="@+id/txtP2"
+                    android:id="@+id/txtP3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -104,7 +104,7 @@
                     android:text="Latitud:" />
 
                 <TextView
-                    android:id="@+id/txtLatitud"
+                    android:id="@+id/txtP2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -183,14 +183,18 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="#3F51B5"
-                android:text="Regresar" />
+                android:text="Regresar"
+                android:onClick="Volver"
+                />
 
             <Button
                 android:id="@+id/btnInfoMaquina"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Info Maquina" />
+                android:text="Info Maquina"
+                android:onClick="verInfoMaquina"
+                />
         </LinearLayout>
 
     </LinearLayout>

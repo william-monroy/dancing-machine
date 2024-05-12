@@ -1,4 +1,4 @@
-package dev.wimo.dancingmachineuserapp.Modelo;
+package Modelo;
 
 public class ModeloPartida {
     private String id;
@@ -7,9 +7,9 @@ public class ModeloPartida {
     private float Latitud;
     private float Longitud;
     public ModeloPartida(){
-        setId("nobihkjkpjhivhjnkjiohibhkj");
+        setId("1");
         setCancion("cancionejemplo");
-        setDificultad("dificultadEjemplo");
+        setDificultad("Fácil");
         setLatitud(42);
         setLongitud(-1);
     }
@@ -56,7 +56,7 @@ public class ModeloPartida {
     @Override
     public String toString(){
         String aux = "Id partida: "+getId()+"\nDificultad: "+getDificultad()+"\nCancion:"+getCancion();
-        aux += "\n\n\nLatitud: "+getLatitud()+"\nLongitud: "+getLongitud();
+        aux += "\n\nLatitud: "+getLatitud()+"\nLongitud: "+getLongitud();
         return aux;
     }
 }

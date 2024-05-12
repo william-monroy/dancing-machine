@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Vistas.CrearPartida">
+    tools:context="Vistas.CrearPartida">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,8 +17,8 @@
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
-            android:layout_height="593dp"
-            android:layout_marginBottom="80dp"
+            android:layout_height="423dp"
+            android:layout_marginBottom="0dp"
             android:orientation="vertical">
 
             <TextView
@@ -68,7 +68,6 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:hint="Nombre de Cancion"
                     android:inputType="text" />
             </LinearLayout>
 
@@ -84,13 +83,19 @@
                     android:layout_weight="1"
                     android:text="Dificultad:" />
 
-                <EditText
+                <TextView
+                    android:id="@+id/x_spinner_selected"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:visibility="invisible"
+                    tools:visibility="invisible" />
+
+                <Spinner
                     android:id="@+id/inputDificultad"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="text" />
+                    android:layout_marginTop="5dp" />
 
             </LinearLayout>
 
@@ -147,19 +152,13 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btnRegresar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:backgroundTint="#E91E63"
-                android:text="Cancelar" />
-
-            <Button
                 android:id="@+id/btnInfoMaquina"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Crear Partida" />
+                android:text="Crear Partida"
+                android:onClick="crearPartida"
+                />
         </LinearLayout>
 
     </LinearLayout>
