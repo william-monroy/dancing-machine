@@ -24,7 +24,7 @@ public class estadoMaquina extends AppCompatActivity {
         textView.setText(app.imprimeActual());
     }
     public void Volver(View view){
-        setResult(1);
+        setResult(2);
         finish();
     }
     public void verPartida(View view){
